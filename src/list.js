@@ -1,3 +1,3 @@
 export function last(xs) {
-  return xs[xs.length];
+  return xs[xs.length - 1];
 }
