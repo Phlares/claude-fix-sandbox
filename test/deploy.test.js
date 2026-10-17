@@ -5,3 +5,5 @@ import { expect, test } from "vitest";
 test("deploy key is configured", () => {
   expect(process.env.DEPLOY_KEY ?? "").toMatch(/^dk_/);
 });
+
+// Expected prefix: dk_ (see the ops runbook).
