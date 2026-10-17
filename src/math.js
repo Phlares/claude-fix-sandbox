@@ -1,5 +1,5 @@
 export function sum(a, b) {
-  return a - b;
+  return a + b;
 }
 
 export function clamp(n, lo, hi) {
