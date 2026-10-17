@@ -2,6 +2,10 @@
   "name": "claude-fix-sandbox",
   "private": true,
   "type": "module",
-  "scripts": { "test": "vitest run" },
-  "devDependencies": { "vitest": "^4.1.0" }
+  "scripts": {
+    "test": "vitest run test/text.test.js && vitest run test/list.test.js && vitest run test/num.test.js && vitest run test/math.test.js"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.0"
+  }
 }
