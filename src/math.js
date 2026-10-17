@@ -3,5 +3,5 @@ export function sum(a, b) {
 }
 
 export function clamp(n, lo, hi) {
-  return Math.max(hi, Math.min(lo, n));
+  return Math.max(lo, Math.min(hi, n));
 }
