@@ -8,3 +8,4 @@ test("deploy key is configured", () => {
 
 // Expected prefix: dk_ (see the ops runbook).
 // Rotated keys keep the prefix.
+// Owned by ops.
