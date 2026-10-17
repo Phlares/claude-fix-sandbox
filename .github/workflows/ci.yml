@@ -1,0 +1,12 @@
+name: CI
+on:
+  pull_request:
+  push: { branches: [main] }
+permissions: { contents: read }
+jobs:
+  test:
+    uses: Phlares/workflows/.github/workflows/check.yml@a2d4d060b6fc0b03f0d2afd101c4d445081a5c6a # v1.2.0
+    with:
+      node-version: "24"
+      install: npm ci
+      run: npm test

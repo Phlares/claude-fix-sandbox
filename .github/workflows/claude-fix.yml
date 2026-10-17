@@ -1,0 +1,16 @@
+name: claude-fix
+on:
+  issues: { types: [labeled] }
+  pull_request: { types: [labeled] }
+  workflow_run: { workflows: [CI], types: [completed] }
+permissions: { contents: write, pull-requests: write, issues: write, actions: read, id-token: write }
+jobs:
+  fix:
+    if: github.event.label.name == 'claude-fix' || github.event.workflow_run.conclusion == 'failure'
+    uses: Phlares/workflows/.github/workflows/claude-fix.yml@a2d4d060b6fc0b03f0d2afd101c4d445081a5c6a # v1.2.0
+    with:
+      node-version: "24"
+      install: npm ci
+      test-command: npx vitest run
+    secrets:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
