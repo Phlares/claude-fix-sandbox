@@ -1,3 +1,4 @@
+// oxlint-disable-next-line no-debugger
 export function sum(a, b) {
   return a + b;
 }
