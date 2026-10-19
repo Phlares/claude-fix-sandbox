@@ -1,0 +1,11 @@
+# No [build-system]: uv does not build or install this project, only the
+# dependency groups.
+[project]
+name = "claude-fix-sandbox"
+version = "0.0.0"
+requires-python = ">=3.12"
+
+# One group per CI job (ci.yml). uv.lock pins them with hashes; run `uv lock`
+# after any change here.
+[dependency-groups]
+lint = ["prek"]

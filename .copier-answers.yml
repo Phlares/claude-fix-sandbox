@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier; do not edit by hand.
+_commit: v1.7.0
+_src_path: gh:Phlares/workflows
+default_branch: main
+languages:
+- node
+node_version: '24'
+python_version: '3.12'
+target_os: ubuntu-latest
+tier: product

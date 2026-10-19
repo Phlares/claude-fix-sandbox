@@ -1,12 +1,37 @@
 name: CI
+
+# From the Phlares/workflows copier template (product tier). Change the
+# structure with `copier update`; Dependabot moves the pins. No path filter:
+# a required check that skips never reports and blocks the PR.
 on:
   pull_request:
-  push: { branches: [main] }
-permissions: { contents: read }
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-    uses: Phlares/workflows/.github/workflows/check.yml@d12ac6953ed5888a2bc2fcfcb63652ca915079b1 # v1.4.0
+  lint:
+    uses: Phlares/workflows/.github/workflows/check.yml@9eebfcd611eaf14c740b760b0e14e8bf404426f4 # v1.7.0
     with:
+      name: lint
+      python-version: "3.12"
+      uv-version: 0.13.1
+      timeout-minutes: 5
+      install: uv sync --locked --only-group lint
+      run: uv run --no-sync prek run --all-files --show-diff-on-failure
+
+  test-js:
+    uses: Phlares/workflows/.github/workflows/check.yml@9eebfcd611eaf14c740b760b0e14e8bf404426f4 # v1.7.0
+    with:
+      name: test
+      runs-on: ubuntu-latest
       node-version: "24"
+      timeout-minutes: 5
       install: npm ci
       run: npm test
