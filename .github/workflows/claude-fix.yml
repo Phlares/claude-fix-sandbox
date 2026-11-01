@@ -7,7 +7,7 @@ permissions: { contents: write, pull-requests: write, issues: write, actions: re
 jobs:
   fix:
     if: github.event.label.name == 'claude-fix' || github.event.workflow_run.conclusion == 'failure'
-    uses: Phlares/workflows/.github/workflows/claude-fix.yml@d12ac6953ed5888a2bc2fcfcb63652ca915079b1 # v1.4.0
+    uses: Phlares/workflows/.github/workflows/claude-fix.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
     with:
       node-version: "24"
       install: npm ci
