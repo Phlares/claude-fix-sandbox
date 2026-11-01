@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   lint:
-    uses: Phlares/workflows/.github/workflows/check.yml@9eebfcd611eaf14c740b760b0e14e8bf404426f4 # v1.7.0
+    uses: Phlares/workflows/.github/workflows/check.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
     with:
       name: lint
       python-version: "3.12"
@@ -27,7 +27,7 @@ jobs:
       run: uv run --no-sync prek run --all-files --show-diff-on-failure
 
   test-js:
-    uses: Phlares/workflows/.github/workflows/check.yml@9eebfcd611eaf14c740b760b0e14e8bf404426f4 # v1.7.0
+    uses: Phlares/workflows/.github/workflows/check.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
     with:
       name: test
       runs-on: ubuntu-latest
