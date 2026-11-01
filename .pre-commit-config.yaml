@@ -10,7 +10,7 @@ repos:
       - id: check-merge-conflict
         args: [--assume-in-merge]
   - repo: https://github.com/oxc-project/mirrors-oxlint
-    rev: 5b56cf853a2b0e1e276773824e00111e6312cb09  # frozen: v1.88.0
+    rev: 8ebb1eb700c8785f2ee97c25259a3f24b74a4dcf  # frozen: v1.89.0
     hooks:
       - id: oxlint
         args:
@@ -18,6 +18,6 @@ repos:
           - --deny-warnings
   # Suppression comments stay at the .suppressions baseline (0 when absent).
   - repo: https://github.com/Phlares/workflows
-    rev: 9eebfcd611eaf14c740b760b0e14e8bf404426f4  # frozen: v1.7.0
+    rev: b980c7e820f2a22b596c63f4b00f412f42e5369a  # frozen: v1.9.0
     hooks:
       - id: suppressions
