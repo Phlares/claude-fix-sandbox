@@ -2,7 +2,8 @@ name: claude-fix
 on:
   issues: { types: [labeled] }
   pull_request: { types: [labeled] }
-  workflow_run: { workflows: [CI], types: [completed] }
+  # Auto fix (opt-in): uncomment. Off since 2026-11-07 (Phlares/workflows#17).
+  # workflow_run: { workflows: [CI], types: [completed] }
 permissions: { contents: write, pull-requests: write, issues: write, actions: read, id-token: write }
 jobs:
   fix:
