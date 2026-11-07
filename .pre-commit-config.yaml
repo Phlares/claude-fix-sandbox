@@ -9,6 +9,16 @@ repos:
       # copier update writes conflicts as inline markers outside a git merge.
       - id: check-merge-conflict
         args: [--assume-in-merge]
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e  # frozen: v8.30.1
+    hooks:
+      - id: gitleaks
+      # The lint job runs the manual stage: CI has nothing staged, so the
+      # entry above scans nothing there. A depth-1 checkout scans HEAD's tree.
+      - id: gitleaks
+        alias: gitleaks-history
+        entry: gitleaks git --redact --verbose
+        stages: [manual]
   - repo: https://github.com/oxc-project/mirrors-oxlint
     rev: 8ebb1eb700c8785f2ee97c25259a3f24b74a4dcf  # frozen: v1.89.0
     hooks:

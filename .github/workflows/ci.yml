@@ -22,9 +22,10 @@ jobs:
       name: lint
       python-version: "3.12"
       uv-version: 0.13.1
+      prek-cache: true
       timeout-minutes: 5
       install: uv sync --locked --only-group lint
-      run: uv run --no-sync prek run --all-files --show-diff-on-failure
+      run: uv run --no-sync prek run --all-files --hook-stage manual --show-diff-on-failure
 
   test-js:
     uses: Phlares/workflows/.github/workflows/check.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
